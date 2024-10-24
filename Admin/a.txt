@@ -1,0 +1,50 @@
+while($row = mysqli_fetch_assoc($result)){
+                        $id = $row['Id'];
+                        $username = $row['Username'];
+                        $email = $row['Email'];
+                        $password = $row['Password'];
+                        echo "<tr>
+                        <th scope='row'>".$id."</th>
+                        <td>".$username."</td>
+                        <td>".$email."</td>
+                        <td>".$password."</td>
+                        <td><button type='button' class='btn btn-primary'><a href='update.php' class='text-light'>Update</a></button>
+                      </tr>";
+
+
+
+                      <?php
+    
+    if(isset($_GET['Id']))
+    {
+      $Id = $_GET['Id'];
+      $sql = "SELECT * FROM `ngologin` WHERE Id = '$Id' ";
+      $result = mysqli_query($conn, $sql);
+
+      if(mysqli_num_rows($result) > 0)
+      {
+        foreach($result as $row)
+        {
+          ?>
+
+
+              <?php
+
+        }
+      }
+      else
+      {
+        ?>
+        <h4>No Record Found</h4>
+        <?php
+      }
+    }
+?>
+
+
+
+<?php
+
+include("../config.php");
+
+?>
